@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 			"avgr"=>$this->input->post("avg")
 		 );
 		 $this->Record->insert_data($data);
-		 $msg["message"]="Record Inserted";
-		 $this->load->view("Welcome_message",$msg);
+		 $rec["record"]=$this->Record->get_Record();
+		 $this->load->view("Welcome_message",$rec);
 	}
 }

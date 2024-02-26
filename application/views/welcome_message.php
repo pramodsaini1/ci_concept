@@ -16,4 +16,11 @@
   echo form_submit($data);
   echo form_close();
 
+  echo"<br><br>";
+  if(isset($record)){
+    foreach($record as $row){
+        echo $row->sn." ".$row->name." ".$row->avgr."<br>";
+    }
+  }
+
 ?>
