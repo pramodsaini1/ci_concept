@@ -6,11 +6,12 @@ class Welcome extends CI_Controller {
 	 public function __construct(){
 		parent:: __construct();
 		$this->load->helper("form");
-		$this->load->dataBase();
+		$this->load->model("Record");
+		$this->load->database();
 	 }
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view("Welcome_message");
 	}
 	public function submit(){
 		 $data=array(
@@ -18,7 +19,7 @@ class Welcome extends CI_Controller {
 			"name"=>$this->input->post("user"),
 			"avgr"=>$this->input->post("avg")
 		 );
-		 $this->db->insert("demo",$data);
+		 $this->Record->insert_data($data);
 		 $msg["message"]="Record Inserted";
 		 $this->load->view("Welcome_message",$msg);
 	}
