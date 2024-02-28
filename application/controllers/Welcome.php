@@ -8,10 +8,12 @@ class Welcome extends CI_Controller {
 		$this->load->helper("form");
 		$this->load->model("Record");
 		$this->load->database();
+		$this->load->helper("url");
 	 }
 	public function index()
 	{
-		$this->load->view("Welcome_message");
+ 		$rec["record"]=$this->Record->get_Record();
+		 $this->load->view("Welcome_message",$rec);
 	}
 	public function submit(){
 		 $data=array(
@@ -20,7 +22,13 @@ class Welcome extends CI_Controller {
 			"avgr"=>$this->input->post("avg")
 		 );
 		 $this->Record->insert_data($data);
-		 $rec["record"]=$this->Record->get_Record();
-		 $this->load->view("Welcome_message",$rec);
+		 
+		  
+ 	}
+	public function edit(){
+		 $id= $this->uri->segment(3);
+		 $recd["rec"]=$this->Record->Edit_record($id);
+		 $this->load->view("Edit.php",$recd);
+
 	}
 }

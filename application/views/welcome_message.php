@@ -17,10 +17,12 @@
   echo form_close();
 
   echo"<br><br>";
+  echo"<table border=1 width=70%>";
   if(isset($record)){
     foreach($record as $row){
-        echo $row->sn." ".$row->name." ".$row->avgr."<br>";
-    }
+        echo "<tr><td>".$row->sn."</td><td>".$row->name."</td><td>".$row->avgr."</td><td><a href=".base_url()."index.php/Welcome/edit/".$row->sn.">Edit</a></td><td><a href=".base_url()."index.php/Welcome/delete/".$row->sn.">Delete</a></td></tr>";
+     }
   }
+  echo"</table>";
 
 ?>
