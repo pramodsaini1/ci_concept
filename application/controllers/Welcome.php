@@ -40,4 +40,9 @@ class Welcome extends CI_Controller {
 		$this->Record->update_record($data,$id);
 		redirect(base_url());
 	}
+	public function delete(){
+		$id=$this->uri->segment(3);
+		$this->Record->delete_record($id);
+		redirect(base_url());
+	}
 }

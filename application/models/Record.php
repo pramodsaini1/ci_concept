@@ -20,6 +20,11 @@ class Record extends CI_Model{
         $this->db->update("ecb",$data);
         redirect(base_url());
      }
+     public function delete_record($id){
+        $this->db->where("sn",$id);
+        $this->db->delete("ecb");
+        redirect(base_url());
+     }
 }
 
 
