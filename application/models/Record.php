@@ -15,6 +15,11 @@ class Record extends CI_Model{
 		return $this->db->get()->result();
 
      }
+     public function update_record($data,$id){
+        $this->db->where("sn",$id);
+        $this->db->update("ecb",$data);
+        redirect(base_url());
+     }
 }
 
 

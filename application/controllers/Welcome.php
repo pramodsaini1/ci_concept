@@ -31,4 +31,13 @@ class Welcome extends CI_Controller {
 		 $this->load->view("Edit.php",$recd);
 
 	}
+    public function update(){
+		$id=$this->uri->segment(3);
+		$data=array(
+			"name"=>$this->input->post("user"),
+			"avgr"=>$this->input->post("avg")
+		);
+		$this->Record->update_record($data,$id);
+		redirect(base_url());
+	}
 }
