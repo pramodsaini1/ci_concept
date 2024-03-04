@@ -38,6 +38,12 @@ class cookie extends CI_Controller {
             redirect(base_url()."index.php/cookie/index");
         }
     }
+    public function logout(){
+        $email=get_cookie("login");
+        delete_cookie("login");
+        $this->session->unset_userdata($email);
+        redirect(base_url()."index.php/cookie/index");
+    }
 
 
 }
